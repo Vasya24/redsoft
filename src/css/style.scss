@@ -1,0 +1,304 @@
+@font-face {
+  font-family: Merriweather;
+  src: url("./fonts/merriweather/merriweatherregular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+%head-one {
+  font-family: Merriweather, serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 36px;
+  letter-spacing: 0;
+  text-align: left;
+}
+%head-two {
+  font-family: Merriweather, serif;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 27px;
+  letter-spacing: 0;
+  text-align: left;
+}
+%head-three {
+  font-family: Merriweather, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: left;
+}
+%head-four {
+  font-family: Merriweather, serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0;
+  text-align: left;
+}
+%head-five {
+  font-family: Merriweather, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 21px;
+  letter-spacing: 0;
+  text-align: left;
+}
+%head-six {
+  font-family: Merriweather, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 21px;
+  letter-spacing: 0;
+  text-align: left;
+}
+%button-normal {
+  cursor: pointer;
+  height: 48px;
+  width: 118px;
+  background-color: #403432;
+  text-align: center;
+  color: #fff;
+  border: none;
+  @extend %head-six;
+}
+%button-hovered {
+  cursor: pointer;
+  height: 48px;
+  width: 118px;
+  background-color: #776763;
+  text-align: center;
+  color: #fff;
+  border: none;
+  @extend %head-six
+}
+%button-disabled {
+  cursor: pointer;
+  height: 48px;
+  width: 118px;
+  background-color: #C1B4B1;
+  text-align: center;
+  color: #fff;
+  border: none;
+  @extend %head-six
+}
+%button-done {
+  cursor: pointer;
+  height: 48px;
+  width: 118px;
+  background-color: #5B3A32;
+  text-align: center;
+  color: #fff;
+  border: none;
+  @extend %head-six
+}
+
+$content: 1216px;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+a {
+  text-decoration: none;
+}
+body {
+  background-color: #E5E5E5;
+}
+.page-header {
+  box-sizing: border-box;
+  border-bottom: 1px solid #E1E1E1;
+  height: 96px;
+  &_content {
+    width: $content;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    //justify-content: space-between;
+    align-items: center;
+    height: 100%;
+  }
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  width: 519px;
+  margin-left: 48px;
+  &_item {
+    @extend %head-six;
+    color: #343030;
+  }
+}
+.search {
+  display: flex;
+  margin-left: 190px;
+  width: 420px;
+
+  &_field {
+    box-sizing: border-box;
+    padding-left: 16px;
+    height: 48px;
+    width: 294px;
+    border: 1px solid #E1E1E1;
+    @extend %head-five;
+    &:focus {
+      border-color: #B5B5B5;
+      outline: none;
+    }
+  }
+  &_submit {
+    box-sizing: border-box;
+    height: 48px;
+    width: 122px;
+    background-color: #403432;
+    cursor: pointer;
+    border: none;
+    font-family: Merriweather, serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 21px;
+    letter-spacing: 0;
+    color: #fff;
+  }
+}
+.main {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 320px;
+  width: $content;
+  padding-top: 45px;
+  &_header {
+    @extend %head-one;
+    margin-bottom: 39px;
+  }
+}
+.cards {
+  display: flex;
+  justify-content: space-between;
+}
+.card {
+  box-sizing: border-box;
+  border: 1px solid #E1E1E1;
+  width: 280px;
+  background-color: #E5E5E5;
+  &_top {
+    height: 180px;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &_body {
+    padding-top: 20px;
+    padding-left: 24px;
+    &-name {
+      width: 220px;
+      margin-bottom: 22px;
+      h2 {
+        @extend %head-two;
+        color: #343030;
+      }
+    }
+    &-purchase {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      padding-right: 24px;
+      .pricebox {
+        height: 48px;
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        .discount {
+          @extend %head-six;
+          color: #A0A0A0;
+          text-decoration: line-through;
+        }
+        .price {
+          @extend %head-six;
+        }
+        .card_sold-sign {
+          @extend %head-three;
+        }
+      }
+      .buy-button {
+        @extend %button-normal;
+        @extend %head-six;
+        &:hover {
+          @extend %button-hovered
+        }
+        &:disabled {
+          height: 48px;
+          width: 118px;
+        }
+      }
+    }
+  }
+  &.sold {
+    opacity: .5;
+  }
+  &:nth-child(1) {
+    .card_top {
+      background-image: url('img/painting-1.png');
+    }
+  }
+  &:nth-child(2) {
+    .card_top {
+      background-image: url('img/painting-2.png');
+    }
+  }
+  &:nth-child(3) {
+    .card_top {
+      background-image: url('img/painting-3.png');
+    }
+  }
+  &:nth-child(4) {
+    .card_top {
+      background-image: url('img/painting-4.png');
+    }
+  }
+}
+.page-footer {
+  background-color: #ECEAEA;
+  height: 96px;
+  display: flex;
+  align-content: center;
+  &_content {
+    width: $content;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .footer-navbar {
+    margin-left: 48px;
+    width: 521px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .phone > span, .address > span {
+    @extend %head-five;
+  }
+  .phone > img {
+    margin-right: 4px;
+  }
+  .address > img {
+    margin-right: 4px;
+  }
+  .phone {
+    margin-left: 153px;
+    display: flex;
+    align-items: center;
+  }
+  .address {
+    margin-left: 51px;
+    display: flex;
+    align-items: center;
+  }
+}
